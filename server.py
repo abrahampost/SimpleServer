@@ -74,7 +74,7 @@ class Server:
 
 
 if __name__ == "__main__":
-    server = Server(log_requests=True)
+    server = Server(log_requests=True, log_responses=True)
     server.set_port()
     print(server.read_file("test.py"))
     server.listen()

@@ -38,7 +38,6 @@ def parse_headers(request, headers):
             except Exception:
                 continue
     else:
-        #TODO: allow dynamic routes
         route = http_info[1]
 
     http_version = http_info[2]
