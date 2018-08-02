@@ -1,7 +1,5 @@
 import sys
-sys.path.append('../')
-for p in sys.path:
-    print(p)
+sys.path.append('../../')
 from server import Server
 
 server = Server(log_requests=True)
