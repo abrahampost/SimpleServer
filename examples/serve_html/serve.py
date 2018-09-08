@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../../')
 import server
 
 server = server.Server(log_requests=True)
