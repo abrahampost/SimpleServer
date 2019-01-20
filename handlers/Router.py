@@ -15,11 +15,11 @@ class Router():
         elif request_type.lower() == "post":
             self.post[route] = function
         elif request_type.lower() == "put":
-            self.post[route] = function
+            self.put[route] = function
         elif request_type.lower() == "patch":
-            self.post[route] = function
+            self.patch[route] = function
         elif request_type.lower() == "delete":
-            self.post[route] = function
+            self.delete[route] = function
         else:
             print("Route type: {} not supported. Exiting...".format(request_type))
             sys.exit(1)
@@ -32,7 +32,7 @@ class Router():
             request_type = request["RequestType"]
             route = request["Route"]
         except Exception:
-            return response_handler.get_default_response(400)
+            return response_handler.get_default_response(500)
         response = None
         try:
             if request_type.lower() == "get":
@@ -40,11 +40,11 @@ class Router():
             elif request_type.lower() == "post":
                 response = self.post[route](request)
             elif request_type.lower() == "put":
-                response = self.post[route](request)
+                response = self.put[route](request)
             elif request_type.lower() == "patch":
-                response = self.post[route](request)
+                response = self.patch[route](request)
             elif request_type.lower() == "delete":
-                response = self.post[route](request)
+                response = self.delete[route](request)
             else:
                 return response_handler.make_response("Request type: {} not supported".format(request_type.upper()), code=501)
             #after the response has been received
